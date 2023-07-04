@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="index.css"/> -->
+    <title>Movies</title>
+    
+</head>
+<body>
+    <div class="con">
+        <!-- Navigation -->
+        <div class="main_con">
+             <h1 >From</h1> <input class="date" id="d1" type="date" /> <h1>To</h1> <input class="date" id="d2" type="date" />
+              <button class="date" onclick="fun()">Submit</button>
+        </div>
+        
+        <!-- Main Box -->
+        <div id="movie" >
+            <p class="x_1">1 (10)<img src="https://m.media-amazon.com/images/M/MV5BZjVkYzY4OWEtMjc2OC00YTQ0LWIwMmUtYTRlODc3ODBmZjcxXkEyXkFqcGdeQXVyMjkyODc0ODk@._V1_.jpg">
+                <span class="solid"><i class="fa-solid fa-star"> 6.9</i></span><i class="fa-regular fa-star"></i>Rate<br>
+                <span id="title_1">Indiana Jones and The Dial </span><br>
+                <span id="year">2023 2h 34m</span><br><br>
+                <span id="date1">02/06/2023</span></p>
+
+            <p class="x_1">2 (2)<img src="https://upload.wikimedia.org/wikipedia/en/5/5c/NoHardFeelingsPoster.png">
+                <span class="solid"><i class="fa-solid fa-star"> 6.8</i></span><i class="fa-regular fa-star"></i>Rate<br>
+                <span id="title_1">No hard Feeling </span><br>
+                <span id="year">2023 1h 43m</span><br><br>
+                <span id="date1">04/07/2023</span></p>
+
+            <p class="x_1">3 (2)<img src="https://m.media-amazon.com/images/M/MV5BNDJmMzY0ZGUtYWE1My00OWViLTg1NTctOWMwZWJlNDQzNGRiXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg">
+                <span class="solid"><i class="fa-solid fa-star"> 7.1</i></span><i class="fa-regular fa-star"></i>Rate<br>
+                <span id="title_1">Asteroid City</span><br>
+                <span id="year">2023 1h 45m</span><br><br>
+                <span id="date1">16/04/2023</span></p>
+
+            <p class="x_1">4 (2)<img src="https://m.media-amazon.com/images/M/MV5BMmM3OWU0YWItNTAzMC00YjNlLWJiM2ItODY5NjY0OTA4OTY1XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg">
+                <span class="solid"><i class="fa-solid fa-star"> 6.2</i></span><i class="fa-regular fa-star"></i>Rate<br>
+                <span id="title_1">The Flash</span><br>
+                <span id="year">2023 2h 24m</span><br><br>
+                <span id="date1">16/06/2023</span></p>
+        </div>
+    </div>
+    <script>
+        let container=document.getElementById("movie")
+        data =[{date:"02/06/2023",name:"Indiana Jones and The Dial",image:"https://m.media-amazon.com/images/M/MV5BZjVkYzY4OWEtMjc2OC00YTQ0LWIwMmUtYTRlODc3ODBmZjcxXkEyXkFqcGdeQXVyMjkyODc0ODk@._V1_.jpg",message:'2023 2h 34m',rating:"6.9"},
+        {date:"04/07/2023",name:"No hard Feeling",image:"https://upload.wikimedia.org/wikipedia/en/5/5c/NoHardFeelingsPoster.png",message:'2023 2h 43m',rating:"6.8"},
+        {date:"16/04/2023",name:"Asteroid City",image:"https://m.media-amazon.com/images/M/MV5BNDJmMzY0ZGUtYWE1My00OWViLTg1NTctOWMwZWJlNDQzNGRiXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_FMjpg_UX1000_.jpg",message:'2023 1h 45m',rating:"7.1"},
+        {date:"06/06/2023",name:"The Flash",image:"https://m.media-amazon.com/images/M/MV5BMmM3OWU0YWItNTAzMC00YjNlLWJiM2ItODY5NjY0OTA4OTY1XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg",message:'2023 2h 24m',rating:"7.2"}]
+
+        function fun()
+        {
+
+            let d1=document.getElementById("d1").value
+            let d2=document.getElementById("d2").value
+           
+            d1=d1.split("-")
+            d1=""+d1[0]+""+d1[1]+""+d1[2]
+
+            d2=d2.split("-")
+            d2=""+d2[0]+""+d2[1]+""+d2[2]
+
+            container.innerHTML=""
+            console.log(d2)
+            for(let i=0;i<data.length;i++)
+            {
+                let md=data[i].date.split("/")
+                md=md[2]+""+md[1]+""+md[0]
+                console.log("md",md,"d1", d1,'d2' ,d2)
+                if (md>=d1 && md<=d2)
+                {
+                    console.log("data")
+                    display(data[i])
+                }
+            }
+             function display(box)
+             {
+                container.innerHTML+=`<p class="x_1">1 (10)<img src=${box.image}>
+                <span class="solid"><i class="fa-solid fa-star"> 6.9</i></span><i class="fa-regular fa-star"></i>Rate<br>
+                <span id="title_1">${box.name}</span><br>
+                <span id="year">2023 2h 34m</span><br><br>
+                <span id="date1">02/06/2023</span></p> `
+             }
+
+        }
+    </script>
+</body>
+</html>
